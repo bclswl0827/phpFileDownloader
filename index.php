@@ -60,7 +60,7 @@ switch ($error_reporting){
 	case 2: error_reporting(E_ALL); @ini_set("display_errors",1); break;
 }
 
-set_time_limit($set_time_limit);
+//set_time_limit($set_time_limit);
 
 // +--------------------------------------------------
 // | Config Class
@@ -86,7 +86,7 @@ class config
 			'_fromhash' => 'fromhash', // 来路验证
 			'cookie_logon' => 'logon', // 已登录标识
 			'cookie_lang' => 'tmp_lang', // 临时界面语言
-			'set_time_limit' => 300, // 允许脚本运行的时间，单位为秒
+			//'set_time_limit' => 300, // 允许脚本运行的时间，单位为秒
 			'cookie_cache_time' => 60*60*24*3, // 3 Days
 			'avliable_lang' => array('cn', 'en'), // 可选语言
 			'version' => '0.5'
@@ -155,7 +155,7 @@ function ml($tag)
 	$en['invalid_password'] = 'Invalid key!';
 	$en['please_try_again'] = 'Please try again.';
 	$en['title'] = 'Remote File Downloader';
-	$en['sub_title'] = '<img class="twitter-emoji" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAKHSURBVDhPZVPPSxRhGH7m252ZXXfX1dJd02xDhDISCvIUBHYJFPOiUEbRtYNExy5WXjp28NB/0EUvEQVdg04lFUU/IESDNdefu67rOrOzMz3vN2spPfAyL8/3Pu+vbz4jIHAAm4+fwv22hNhZhZbhD5orvjyPvS8+rL4cjty/o7l96AQb0zOoF9ah0gm4XxdgxG34OxG0jhV00NZcFipZR1B1YJ3pgV+qIJJtw9GpSUTuNnc/3Hs7j8Ctwd/chorZMAxDcsPMuAgcBTefgDLJWCbq60UEu1V4S3l4K2tQ3vIaK8ZgmFFtfxEYUIk6VJNPv8ER+3GiEa1KjAyy3fqhINlK4CrE+8raxD+0KfqiEa1q6p9H8mIRXtFEUDNCMb92bwWq3dUm/sEziRWNaI3g0+0A1jJqiymUXmfgLDTJ+Oia+tEoFyI/fUpXtnt2kb6yCvNkGXA7meDdMGkqovzEOG810pAQviyTUDzbR5zj7inAk7MA9Bqo061wiXGLibjyKH2TycTEF07OJEZiGwhHcFfpMTBu4snMG3RmUzjRlUYqYeugcsXBr3wJy4Uy7k1eYpc1FmcnVoYJFmcCFJ4DkTiQsjEyPoeWZnYvt9foXH4LxaLFbeDF7BgzOuyiCmRHOUIHCY8nEu35uHY1B8cFEtxlKhma+MJdH83pmDCWGmoV7A6gfYgZd3RrN24NYGjwODa2WIiUmPhDl7sxcXMgbF9iRUPtv8f0cYJlfnNhKSBpwd2q4vP38C30n87CauWIO2zD4/XZx4Bzz/TZ4df48xGw+opJuIQoFxjl5gUeq3qcW9rOsHLvg5An/nvOcFh1ZRYoveePsh5yVhuQvsCZx1k9G3IawB8xOxT1Y9raeQAAAABJRU5ErkJggg==" draggable="false" alt="😍" />';
+	$en['sub_title'] = ' - Download files from other server!';
 	$en['can_not_open_file'] = 'Can not open file';
 	$en['can_not_write_log'] = 'Can not write file';
 	$en['query_file'] = 'Query File';
@@ -206,7 +206,7 @@ function ml($tag)
 	$cn['invalid_password'] = '密码无效！';
 	$cn['please_try_again'] = '请重新输入。';
 	$cn['title'] = '远程下载';
-	$cn['sub_title'] = '<img class="twitter-emoji" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAKHSURBVDhPZVPPSxRhGH7m252ZXXfX1dJd02xDhDISCvIUBHYJFPOiUEbRtYNExy5WXjp28NB/0EUvEQVdg04lFUU/IESDNdefu67rOrOzMz3vN2spPfAyL8/3Pu+vbz4jIHAAm4+fwv22hNhZhZbhD5orvjyPvS8+rL4cjty/o7l96AQb0zOoF9ah0gm4XxdgxG34OxG0jhV00NZcFipZR1B1YJ3pgV+qIJJtw9GpSUTuNnc/3Hs7j8Ctwd/chorZMAxDcsPMuAgcBTefgDLJWCbq60UEu1V4S3l4K2tQ3vIaK8ZgmFFtfxEYUIk6VJNPv8ER+3GiEa1KjAyy3fqhINlK4CrE+8raxD+0KfqiEa1q6p9H8mIRXtFEUDNCMb92bwWq3dUm/sEziRWNaI3g0+0A1jJqiymUXmfgLDTJ+Oia+tEoFyI/fUpXtnt2kb6yCvNkGXA7meDdMGkqovzEOG810pAQviyTUDzbR5zj7inAk7MA9Bqo061wiXGLibjyKH2TycTEF07OJEZiGwhHcFfpMTBu4snMG3RmUzjRlUYqYeugcsXBr3wJy4Uy7k1eYpc1FmcnVoYJFmcCFJ4DkTiQsjEyPoeWZnYvt9foXH4LxaLFbeDF7BgzOuyiCmRHOUIHCY8nEu35uHY1B8cFEtxlKhma+MJdH83pmDCWGmoV7A6gfYgZd3RrN24NYGjwODa2WIiUmPhDl7sxcXMgbF9iRUPtv8f0cYJlfnNhKSBpwd2q4vP38C30n87CauWIO2zD4/XZx4Bzz/TZ4df48xGw+opJuIQoFxjl5gUeq3qcW9rOsHLvg5An/nvOcFh1ZRYoveePsh5yVhuQvsCZx1k9G3IawB8xOxT1Y9raeQAAAABJRU5ErkJggg==" draggable="false" alt="😍" title="带有爱慕眼睛的表情" aria-label="表情符号： 带有爱慕眼睛的表情" />';
+	$cn['sub_title'] = ' - PHP 实现远程拉取文件';
 	$cn['can_not_open_file'] = '不能打开文件';
 	$cn['can_not_write_log'] = '不能写入文件';
 	$cn['query_file'] = '链接';
@@ -222,7 +222,7 @@ function ml($tag)
 	$cn['unknown_error'] = '未知错误';
 	$cn['downloaded'] = '已经下载';
 	$cn['download_progress'] = '下载进度';
-	$cn['warn_to_url'] = '请输入完整链接。例如 http://www.example.com/file.txt';
+	$cn['warn_to_url'] = '请输入完整链接。';
 	$cn['alert_url'] = '请认真填写下载链接！';
 	$cn['pwd_pls'] = '请输入密码！';
 	$cn['confirm_exit'] = '真的要退出吗？';
@@ -398,7 +398,7 @@ if (isset($_POST['fromhash']) && $_POST['fromhash'] == $_SESSION['fromhash']) {
 						$total_len   += $current_len; // 累计已经下载的字节数
 						fwrite($local_file, $current_part, $current_len); // $down_part_size ?
 						echo "<script>setDownloaded($total_len);</script>"; // 前台显示下载进度
-						ob_flush();
+						//ob_flush();
 						flush();
 					} // !feof($remote_file)
 					fclose($local_file);
